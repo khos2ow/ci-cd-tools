@@ -23,7 +23,7 @@ RUN apk add --no-cache \
 		openjdk8 \
 		maven \
 		curl \
-		locate \
+		findutils \
 		which
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
