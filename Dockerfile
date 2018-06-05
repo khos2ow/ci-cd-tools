@@ -19,6 +19,7 @@ FROM docker:dind
 LABEL maintainer="Khosrow Moossavi <me@khosrow.io> (@khos2ow)"
 
 RUN apk add --no-cache \
+		bash \
 		git \
 		openjdk8 \
 		maven \
