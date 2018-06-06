@@ -25,7 +25,8 @@ RUN apk add --no-cache \
 		maven \
 		curl \
 		findutils \
-		which
+		which && \
+		rm -rf /var/cache/apk/*
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 ENTRYPOINT ["docker-entrypoint.sh"]
