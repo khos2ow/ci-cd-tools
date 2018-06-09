@@ -1,5 +1,3 @@
-#!/bin/bash
-#
 # Licensed to the Apache Software Foundation (ASF) under one
 # or more contributor license agreements.  See the NOTICE file
 # distributed with this work for additional information
@@ -17,15 +15,16 @@
 # specific language governing permissions and limitations
 # under the License.
 
-set -e
+sudo: required
+dist: trusty
+group: edge
 
-# Print out some environment information
-environment-info.sh
+language: generic
+services: 
+  - docker
 
-nohup dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=vfs --log-level error &
+notifications:
+  email: false
 
-if [ "$#" -eq 0 ]; then
-    exec bash
-else
-    exec bash -c "$@"
-fi
+install: make build
+script: docker run khos2ow/dind-git-java
