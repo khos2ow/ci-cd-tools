@@ -20,13 +20,42 @@ LABEL maintainer="Khosrow Moossavi <me@khosrow.io> (@khos2ow)"
 
 RUN apk add --no-cache \
 		bash \
+		sudo \
+		build-base \
 		git \
 		openjdk8 \
+		ruby ruby-io-console ruby-bundler \
+		python python3 python-dev py-pip \
+		build-base \
 		maven \
+		openssl \
 		curl \
+		wget \
+		rsync \
+		tar \
+		gzip \
+		zip \
+		vim \
+		jq \
 		findutils \
-		which && \
-		rm -rf /var/cache/apk/*
+		which \
+	&& pip install --upgrade pip \
+	&& pip install virtualenv \
+	&& rm -rf /var/cache/apk/*
+
+ENV IVY_HOME /cache
+ENV GRADLE_VERSION 4.8
+ENV GRADLE_HOME /usr/local/gradle
+ENV PATH ${PATH}:${GRADLE_HOME}/bin
+
+# Install gradle
+RUN cd /usr/local && \
+	wget  https://downloads.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip && \
+    unzip gradle-$GRADLE_VERSION-bin.zip && \
+    rm -f gradle-$GRADLE_VERSION-bin.zip && \
+    ln -s gradle-$GRADLE_VERSION gradle
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+COPY environment-info.sh /usr/local/bin/environment-info.sh
+
 ENTRYPOINT ["docker-entrypoint.sh"]
