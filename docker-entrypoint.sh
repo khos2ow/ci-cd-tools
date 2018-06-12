@@ -19,12 +19,12 @@
 
 set -e
 
-# Print out some environment information
-environment-info.sh
-
 nohup dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=vfs --log-level error &
 
 if [ "$#" -eq 0 ]; then
+    # Print out some environment information
+    environment-info.sh
+
     exec bash
 else
     exec bash -c "$@"
