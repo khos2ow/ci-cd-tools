@@ -109,4 +109,4 @@ locate --version
 print_title "which"
 which --version
 
-echo -e "${EXTRA_LINE}"
+echo ""
