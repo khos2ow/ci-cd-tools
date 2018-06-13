@@ -27,4 +27,4 @@ notifications:
   email: false
 
 install: make build
-script: docker run khos2ow/dind-git-java
+script: docker run khos2ow/ci-cd-tools
