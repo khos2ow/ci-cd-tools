@@ -18,4 +18,4 @@
 .PHONY: build
 
 build:
-	docker build -t khos2ow/dind-git-java:latest .
+	docker build -t khos2ow/ci-cd-tools:latest .

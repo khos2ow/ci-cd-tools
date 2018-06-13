@@ -1,8 +1,8 @@
-# dind-git-java
+# CI/CD Tools
 
-[![Docker Automated build](https://img.shields.io/docker/automated/khos2ow/dind-git-java.svg)](https://hub.docker.com/r/khos2ow/dind-git-java/)
-[![Docker Build Status](https://img.shields.io/docker/build/khos2ow/dind-git-java.svg)](https://hub.docker.com/r/khos2ow/dind-git-java/builds/)
-[![license](https://img.shields.io/github/license/khos2ow/dind-git-java.svg)](https://github.com/khos2ow/dind-git-java/blob/master/LICENSE)
+[![Docker Automated build](https://img.shields.io/docker/automated/khos2ow/ci-cd-tools.svg)](https://hub.docker.com/r/khos2ow/ci-cd-tools/)
+[![Docker Build Status](https://img.shields.io/docker/build/khos2ow/ci-cd-tools.svg)](https://hub.docker.com/r/khos2ow/ci-cd-tools/builds/)
+[![license](https://img.shields.io/github/license/khos2ow/ci-cd-tools.svg)](https://github.com/khos2ow/ci-cd-tools/blob/master/LICENSE)
 
 Docker images containing essential tools and packages for development, specially to be used as a base working image in various CI/CD pipelines (GitLab CI, Travis CI, ...).
 
@@ -15,7 +15,7 @@ Docker images containing essential tools and packages for development, specially
 
 ## Supported tags and respective `Dockerfile` links
 
-- [`latest` (Dockerfile)](https://github.com/khos2ow/dind-git-java/blob/master/Dockerfile)
+- [`latest` (Dockerfile)](https://github.com/khos2ow/ci-cd-tools/blob/master/Dockerfile)
 
 ## Packges installed in conatiner
 
@@ -52,10 +52,10 @@ List of available packages inside the container:
 
 If you want to use dind with this image you need to pass `/var/run/docker.sock` from host to the container as a Volume:
 
-```
-docker run --volume /var/run/docker.sock:/var/run/docker.sock khos2ow/dind-git-java
+```bash
+docker run --volume /var/run/docker.sock:/var/run/docker.sock khos2ow/ci-cd-tools
 ```
 
 ## License
 
-Licensed under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0). Please see the [LICENSE](https://github.com/khos2ow/dind-git-java/blob/master/LICENSE) file included in the root directory of the source tree for extended license details.
+Licensed under [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0). Please see the [LICENSE](https://github.com/khos2ow/ci-cd-tools/blob/master/LICENSE) file included in the root directory of the source tree for extended license details.

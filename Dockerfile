@@ -27,7 +27,6 @@ RUN apk add --no-cache \
 		ruby ruby-io-console ruby-bundler \
 		python python3 python-dev py-pip \
 		build-base \
-		maven \
 		openssl \
 		curl \
 		wget \
@@ -43,12 +42,23 @@ RUN apk add --no-cache \
 	&& pip install virtualenv \
 	&& rm -rf /var/cache/apk/*
 
+# maven
+ENV MAVEN_VERSION 3.5.2
+ENV MAVEN_HOME /usr/lib/mvn
+ENV PATH ${PATH}:${MAVEN_HOME}/bin
+
+RUN cd /usr/local && \
+	wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz && \
+	tar -zxvf apache-maven-$MAVEN_VERSION-bin.tar.gz && \
+	rm -f apache-maven-$MAVEN_VERSION-bin.tar.gz && \
+	mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
+
+# gradle
 ENV IVY_HOME /cache
 ENV GRADLE_VERSION 4.8
 ENV GRADLE_HOME /usr/local/gradle
 ENV PATH ${PATH}:${GRADLE_HOME}/bin
 
-# Install gradle
 RUN cd /usr/local && \
 	wget  https://downloads.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip && \
     unzip gradle-$GRADLE_VERSION-bin.zip && \
