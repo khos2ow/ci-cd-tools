@@ -28,6 +28,7 @@ RUN apk add --no-cache \
 		python python3 python-dev py-pip \
 		build-base \
 		openssl \
+        openssh \
 		curl \
 		wget \
 		rsync \

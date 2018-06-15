@@ -37,6 +37,7 @@ List of available packages inside the container:
 | maven      | 3.5.2               |
 | gradle     | 4.8                 |
 | openssl    | 1.0.2o              |
+| openssh    | 7.5p1-hpn14v4       |
 | curl       | 7.60.0              |
 | wget       | 1.19.5              |
 | rsync      | 3.1.3               |
